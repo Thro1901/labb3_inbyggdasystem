@@ -1,5 +1,6 @@
 #include <avr/io.h>
 #include <stdbool.h> 
+
 #include "led.h"
 
 static bool Increasing = true;
@@ -7,7 +8,7 @@ static uint8_t Brightness = 0;
 static uint8_t Period = 255;  // max brightness
 
 void LED_init() {
-    
+    DDRD |= (1 << PD6); //PORTD To output pwn pin 6
 }
 
 uint8_t simple_ramp() {
@@ -27,4 +28,8 @@ uint8_t simple_ramp() {
     }
 
     return Brightness;
+}
+
+void TOGGLE_led() {
+    PORTB ^= (1 << PD6);
 }

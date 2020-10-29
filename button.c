@@ -15,20 +15,19 @@ void button_init() {
 }
 
 void button_pressed() {
-
-	if (PIND & (1 << PD2)) {
+	if (PIND & (1 << PD2)) { // if PIN2D is high 
 		buttonstate = 1;
 	}
-	else if (!(PIND & (1 << PD2))) {
+	else if (!(PIND & (1 << PD2))) {  // if PIN2D is low 
 		buttonstate = 0;
 	}
 
-	if (buttonstate == 1 && lastbuttonstate == 0) {
+	if (buttonstate == 1 && lastbuttonstate == 0) {  
 		printf_P(PSTR("%s"), Pressed);
 	}
 	else if (buttonstate == 0 && lastbuttonstate == 1) {
 		printf_P(PSTR("%s"), NotPressed);
 	}
-	lastbuttonstate = buttonstate;
+	lastbuttonstate = buttonstate;  // Save buttonstate to lastbuttonstate
 }
 
