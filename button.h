@@ -3,6 +3,6 @@
 
 void button_init();
 
-void button_pressed();
+void button_pressed(int *button_pressed_count);
 
 #endif // _BUTTON_H_
